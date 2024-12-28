@@ -1,6 +1,3 @@
-// Liste de toutes les matières
-// document.getElementsByClassName('tab-pane fade active show')[0].querySelectorAll('tbody')
-
 function areNotesWaiting(subject){
     waiting = false;
 
