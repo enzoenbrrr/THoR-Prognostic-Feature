@@ -117,11 +117,8 @@ function addToTotal(){
     link2.rel = 'stylesheet';
     link2.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
     document.head.appendChild(link2);
-
-    styleButton = "position: fixed;bottom: 20px;left: 30px;width: 40px;height: 40px;display: inline-block;border: none;border-radius: 0.375rem;background-color: #7f75df;color: white;font-size: 20px;text-align: center;z-index: 1000;cursor: pointer;"
     btn = document.createElement('button')
     btn.innerHTML = '<i class="bi bi-plus-square-dotted"></i>'
-    btn.setAttribute('style', styleButton);
     btn.setAttribute('onclick', 'addToTotal()');
     btn.classList.add('enzoenbrrr-btn');
     btn.id = '0';
