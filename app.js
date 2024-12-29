@@ -113,10 +113,10 @@ function addToTotal(){
     link.rel = 'stylesheet';
     link.href = 'https://raw.githubusercontent.com/enzoenbrrr/THoR-Prognostic-Feature/refs/heads/main/style.css';
     document.head.appendChild(link);
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
-    document.head.appendChild(link);
+    const link2 = document.createElement('link');
+    link2.rel = 'stylesheet';
+    link2.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
+    document.head.appendChild(link2);
 
     styleButton = "position: fixed;bottom: 20px;left: 30px;width: 40px;height: 40px;display: inline-block;border: none;border-radius: 0.375rem;background-color: #7f75df;color: white;font-size: 20px;text-align: center;z-index: 1000;cursor: pointer;"
     btn = document.createElement('button')
