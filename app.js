@@ -38,8 +38,8 @@ function setPredictedMark(subject){
         pourcent = findPercentage(row);
         if(row.querySelector('.badge')){
             totalPoints += getNote(row.querySelector('.badge').innerText) * pourcent
-        }else if(row.querySelector('.enzoenbrrr-input-style')){
-            totalPoints += getNote(row.querySelector('.enzoenbrrr-input-style').value) * pourcent
+        }else if(row.querySelector('.enzoenbrrr-input')){
+            totalPoints += getNote(row.querySelector('.enzoenbrrr-input').value) * pourcent
         }
     })
     return Math.round(1000*(totalPoints * onPoints / 100)) / 1000
@@ -101,10 +101,8 @@ function addToTotal(){
                     input = document.createElement('input');
                     input.type = 'text';
                     input.value = "0 / 20";
-                    let style_enzoenbrrr = "border: none;background-color: #7f75df;font-size: 0.8rem;font-weight: 700;color: white;border-radius: 0.375rem;padding: 0px px;width: 4rem;text-align: center;outline: none;"
-                    input.setAttribute('style', style_enzoenbrrr);
                     input.setAttribute('maxlength', '10');
-                    input.classList.add('enzoenbrrr-input-style');
+                    input.classList.add('enzoenbrrr-input');
                     input.addEventListener('input', ()=>{inputIsValid(input);updateNote(subject);updateFinale()});
                     row.children[1].appendChild(input);
                 }
