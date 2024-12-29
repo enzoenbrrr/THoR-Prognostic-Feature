@@ -124,7 +124,7 @@ function addToTotal(){
 
     btn = document.createElement('button')
     btn.innerHTML = '<i class="bi bi-plus-square-dotted"></i>'
-    btn.setAttribute('onclick', 'addToTotal()');
+    btn.addEventListener('click', addToTotal);
     btn.classList.add('enzoenbrrr-btn');
     btn.id = '0';
     document.querySelector("body > div").appendChild(btn);
