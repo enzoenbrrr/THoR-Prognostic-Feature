@@ -111,6 +111,10 @@ function addToTotal(){
     })
     const link = document.createElement('link');
     link.rel = 'stylesheet';
+    link.href = 'https://raw.githubusercontent.com/enzoenbrrr/THoR-Prognostic-Feature/refs/heads/main/style.css';
+    document.head.appendChild(link);
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
     link.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
     document.head.appendChild(link);
 
