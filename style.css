@@ -1,0 +1,44 @@
+.enzoenbrrr-btn{
+    transition: 0.5;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border: none;
+    border-radius: 0.375rem;
+    background-color: #7f75df;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.enzoenbrrr-btn:hover{
+    transition: 0.5;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border: none;
+    border-radius: 0.375rem;
+    background-color: #4f498a;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.enzoenbrrr-input{
+    border: none;
+    background-color: #7f75df;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    border-radius: 0.375rem;
+    padding: 0px px;
+    width: 4rem;
+    text-align: center;
+    outline: none;
+}

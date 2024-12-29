@@ -45,6 +45,52 @@ function setPredictedMark(subject){
     return Math.round(1000*(totalPoints * onPoints / 100)) / 1000
 }
 
+function updateNote(subject){
+    str = `${setPredictedMark(subject)}/${pointOfSubject(subject)} - ${Math.round(1000*(setPredictedMark(subject)*20/pointOfSubject(subject)))/1000}/20<br>Après pronostic.`
+    if(subject.lastChild.classList.contains('table-danger')){
+        subject.children[subject.childrenCount - 2].children[1].innerHTML = str
+    }else{
+        subject.lastChild.children[1].innerHTML = str
+    }
+    
+}
+
+function updateFinale(){
+    const rows = Array.from(document.getElementsByClassName('tab-pane fade show active')[0].querySelectorAll("tr"));
+    const totalSemestreRows = rows.filter(e => e.innerText.includes('Total'));
+    u = totalSemestreRows.pop();
+    total = 0;
+    totalSemestreRows.forEach(row => {
+        total += Math.round(1000 * parseFloat(row.children[1].innerText.split('/')[0]))/1000
+    })
+    max = u.children[1].innerText.split("/")[1].split(" ")[0]
+    i = parseFloat(document.getElementsByClassName('enzoenbrrr-btn')[0].id);
+    if(i ==0){
+        t = "Après pronostic."
+    }else{
+        total += i;
+        t = `Après pronostic et ajout de ${i} points.`	
+    }
+    total = Math.round(1000 * total) / 1000;
+    str = `${total}/${max} (${Math.round(1000*(total*20/max))/1000}/20)<br>${t}`;
+    u.children[1].innerHTML =  str;
+}
+
+function inputIsValid(input){
+    
+    if(parseFloat(input.value.split('/')[0]) != 0 && isNaN(parseFloat(input.value.split('/'))/parseFloat(input.value.split('/')))){
+        
+        input.style.backgroundColor = 'grey';
+    }else{
+        input.style.backgroundColor = '#7f75df';
+    }
+}
+
+function addToTotal(){
+    val = prompt("Nombre de points à rajouter au semestre : ", 0);
+    document.getElementsByClassName('enzoenbrrr-btn')[0].id = val;
+    updateFinale();
+}
 
 (()=>{
     document.getElementsByClassName('tab-pane fade active show')[0].querySelectorAll('tbody').forEach(subject => {
@@ -57,16 +103,32 @@ function setPredictedMark(subject){
                     input.value = "0 / 20";
                     let style_enzoenbrrr = "border: none;background-color: #7f75df;font-size: 0.8rem;font-weight: 700;color: white;border-radius: 0.375rem;padding: 0px px;width: 4rem;text-align: center;outline: none;"
                     input.setAttribute('style', style_enzoenbrrr);
-                    input.setAttribute('maxlength', '7');
+                    input.setAttribute('maxlength', '10');
                     input.classList.add('enzoenbrrr-input-style');
-                    input.addEventListener('input', ()=>{updateNote(subject)});
+                    input.addEventListener('input', ()=>{inputIsValid(input);updateNote(subject);updateFinale()});
                     row.children[1].appendChild(input);
                 }
             })
         }
     })
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
+    document.head.appendChild(link);
+
+    styleButton = "position: fixed;bottom: 20px;left: 30px;width: 40px;height: 40px;display: inline-block;border: none;border-radius: 0.375rem;background-color: #7f75df;color: white;font-size: 20px;text-align: center;z-index: 1000;cursor: pointer;"
+    btn = document.createElement('button')
+    btn.innerHTML = '<i class="bi bi-plus-square-dotted"></i>'
+    btn.setAttribute('style', styleButton);
+    btn.setAttribute('onclick', 'addToTotal()');
+    btn.classList.add('enzoenbrrr-btn');
+    btn.id = '0';
+    document.querySelector("body > div").appendChild(btn);
 })();
 
-function updateNote(subject){
-    subject.lastChild.children[1].innerHTML = `${setPredictedMark(subject)}/${pointOfSubject(subject)} - ${Math.round(1000*(setPredictedMark(subject)*20/pointOfSubject(subject)))/1000}/20<br>Après pronostic.`
-}
+(()=>{
+    console.clear()
+    console.log('Script loaded.')
+})()
+
+
