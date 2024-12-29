@@ -109,14 +109,19 @@ function addToTotal(){
             })
         }
     })
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://raw.githubusercontent.com/enzoenbrrr/THoR-Prognostic-Feature/refs/heads/main/style.css';
-    document.head.appendChild(link);
-    const link2 = document.createElement('link');
-    link2.rel = 'stylesheet';
-    link2.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
-    document.head.appendChild(link2);
+
+    function addStyle(text){
+        sty = document.createElement('style')
+        sty.innerHTML = text;
+        document.head.appendChild(sty)
+    }
+    fetch('https://raw.githubusercontent.com/enzoenbrrr/THoR-Prognostic-Feature/refs/heads/main/style.css').then(r => r.text()).then(f => addStyle(f))
+
+    const bootstrap = document.createElement('link');
+    bootstrap.rel = 'stylesheet';
+    bootstrap.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
+    document.head.appendChild(bootstrap);
+
     btn = document.createElement('button')
     btn.innerHTML = '<i class="bi bi-plus-square-dotted"></i>'
     btn.setAttribute('onclick', 'addToTotal()');
