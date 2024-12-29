@@ -1,5 +1,6 @@
 .enzoenbrrr-btn{
-    transition: 0.5;
+    transition: 0.5s;
+    z-index: 1000;
     position: fixed;
     bottom: 20px;
     left: 30px;
@@ -15,7 +16,7 @@
 }
 
 .enzoenbrrr-btn:hover{
-    transition: 0.5;
+    transition: 0.5s;
     position: fixed;
     bottom: 20px;
     left: 30px;
